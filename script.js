@@ -256,11 +256,6 @@ btn_Reset.style.fontSize = "32px";
 btn_Reset.style.backgroundColor = "#080F1A";
 btn_box.appendChild(btn_Reset);
 
-// let start = document.querySelector("#start");
-// let pause = document.querySelector("#pause");
-// let reset = document.querySelector("#reset");
-// // let header = document.querySelector("h1");
-
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
@@ -270,18 +265,15 @@ let count = true;
 
 let intervalID;
 
-if (count) {
-  btn_Start.addEventListener("click", () => {
-    intervalID = setInterval(showMilliseconds, 10);
-  });
-  count = !count;
-}
-{
-  btn_Pause.addEventListener("click", () => {
-    clearInterval(intervalID);
-  });
-  count = !count;
-}
+btn_Start.addEventListener("click", () => {
+  btn_Start.setAttribute("disabled", true);
+  intervalID = setInterval(showMilliseconds, 10);
+});
+
+btn_Pause.addEventListener("click", () => {
+  btn_Start.removeAttribute("disabled");
+  clearInterval(intervalID);
+});
 
 btn_Reset.onclick = () => {
   hours = 0;
@@ -292,6 +284,7 @@ btn_Reset.onclick = () => {
 };
 
 function showMilliseconds() {
+  console.log(milliseconds);
   if (milliseconds == 100) {
     seconds++;
     milliseconds = 0;
@@ -304,6 +297,8 @@ function showMilliseconds() {
     hours++;
     minutes = 0;
   }
-  Box_elemens.textContent =
-    hours + ":" + minutes + ":" + seconds + ":" + milliseconds++;
+  text_number4.textContent = milliseconds++;
+  text_number3.textContent = seconds;
+  text_number2.textContent = minutes;
+  text_number.textContent = hours;
 }
