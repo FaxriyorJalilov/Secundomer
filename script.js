@@ -80,6 +80,12 @@ box.style.background = "url(./imgas/bg.png)";
 box.style.backgroundSize = "cover";
 box.style.backgroundPosition = "center";
 root.appendChild(box);
+let all = document.querySelectorAll("*");
+for (let index = 0; index < all.length; index++) {
+  all[index].style.margin = "0";
+  all[index].style.padding = "0";
+  all[index].style.boxSizing = "border-box";
+}
 
 //----box2 div
 
@@ -250,10 +256,10 @@ btn_Reset.style.fontSize = "32px";
 btn_Reset.style.backgroundColor = "#080F1A";
 btn_box.appendChild(btn_Reset);
 
-let start = document.querySelector("#start");
-let pause = document.querySelector("#pause");
-let reset = document.querySelector("#reset");
-// let header = document.querySelector("h1");
+// let start = document.querySelector("#start");
+// let pause = document.querySelector("#pause");
+// let reset = document.querySelector("#reset");
+// // let header = document.querySelector("h1");
 
 let hours = 0;
 let minutes = 0;
